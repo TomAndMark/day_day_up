@@ -45,9 +45,9 @@ node* createnodes(int num)  //返回头节点,头节点不属于有效节点时
 	while (--num)
 	{
 		newnode = (node*)malloc(1*sizeof(node));
-		while (NULL == head)
+		while (NULL == newnode)
 		{
-			node *head = (node *)malloc(1*sizeof(node));
+			node *newnode = (node *)malloc(1*sizeof(node));
 		}
 		newnode->data = i+1;
 		++i;
