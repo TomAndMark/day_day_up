@@ -213,11 +213,11 @@ void insert_desc_sort (int *s, int len)
 
 /********************************************************
 *函数名称：GetNumInPos
-*参数说明：num 一个整形数据
-*		   pos 表示要获得的整形的第pos位数据
+*参数说明：num 一个整型数据
+*		   pos 表示要获得的整型的第pos位数据
 *说明：    找到num的从低到高的第pos位的数据
 *********************************************************/
-int GetNumInPos(int num,int pos)
+int GetNumInPos(int num, int pos)
 {
 	int temp = 1;
 	int i;
@@ -277,7 +277,7 @@ void RadixSort(int* pDataArray, int iDataNum)
 *递归式: quick_sort(s, from, right-1);
 *	     quick_sort(s, right+1, to);
 *
-*递归临界值:if (left >= right) return;   1:left >= right  6:left < right
+*递归临界值:if (left >= right) return;   1:left >= right  5:left < right
 * 复杂度说明:O(nlogn) 空间赋值复杂度O(n) 
 *
 ************************************/
@@ -298,7 +298,7 @@ void quick_sort(int *s, int left, int right)
 			--right;
 		}
 
-		if (left < right)
+		if (left < right)     //可用s[left] = s[right];代替，但是多了操作
 		{
 			s[left++] = s[right];
 		}
@@ -308,7 +308,7 @@ void quick_sort(int *s, int left, int right)
 			++left;
 		}
 
-		if (left < right)
+		if (left < right)      //可用s[right] = s[left];代替，但是多了操作
 		{
 			s[right--] = s[left];
 		}
@@ -318,6 +318,11 @@ void quick_sort(int *s, int left, int right)
 	quick_sort(s, from, right-1);
 	quick_sort(s, right+1, to);
 }
+
+//递归数据规模很大时，递归的算法很容易导致栈溢出，改为非递归，
+//模拟栈操作，最大长度为n，每次压栈时先压长度较大的，此时栈深度为logn。
+
+void quick_sork()
 
 
 /***********************************

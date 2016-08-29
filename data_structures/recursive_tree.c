@@ -81,7 +81,7 @@ void lasttree(node *root)
 }
 
 
-void freetree(node *root)
+void freetree(node *root) //后序释放空间
 {
 	if (NULL != root)
 	{	
